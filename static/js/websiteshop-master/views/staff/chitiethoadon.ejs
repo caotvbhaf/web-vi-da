@@ -1,0 +1,43 @@
+<div class="space"> </div>
+<!-- Services Details-->
+<!--Top Navigation -->
+<div class="topnav">
+  <a class="active" style="width:80px;" href=""> <i class = "fa fa-home" ></i> </a>
+  <div class="search-container">
+    <form action="search" method="POST">
+      <input type="text" placeholder="Search by ID " name="hoadon">
+    </form>
+  </div>
+</div>
+<!--Top Navigation -->
+
+<br>
+<a href="/admin/hoadon" style="float:left">  <button type = "button" class = "button btn-primary"><i class="fa fa-arrow-left"></i>  </button> </a>
+<br>
+
+<center>
+  <h2>Chi tiết hóa đơn</h2> </center>
+*Mã số hóa đơn:
+<%= hoadon[0].ID%>
+  <br>*Họ tên khách hàng:
+  <%= hoadon[0].customer.hoten%> - Địa chỉ:
+    <%= hoadon[0].customer.diachi%>
+      <br>*Danh sách các sản phẩm đã mua
+      <ul>
+        <% for (var i=0 ; i< hoadon[0].danhsachsanpham.length ; i ++ ) {%>
+          <li>Tên sản phẩm:
+            <%= hoadon[0].danhsachsanpham[i].item.name%> - Số lượng:
+              <%= hoadon[0].danhsachsanpham[i].quantity%>
+          </li>
+          <%}%>
+      </ul>
+      <b>*Tong thanh toan: <%= hoadon[0].total%>đ </b>
+      <br>
+      <% if ( hoadon[0].dagiao == "no") {%>
+        Tình trạng giao hàng: <i class="fa fa-remove" style="color: #ff3333;"></i>
+        <%} else if ( hoadon[0].dagiao == "yes") { %>
+          Tình trạng giao hàng: <i class="fa fa-check" style="color: #79ff4d;"></i>
+          <%} else {%>
+            Tình trạng giao hàng: <span style="color: #1a75ff" ;> <b>ON THE WAY !!! </b> </span>
+            <%}%>
+              </div>

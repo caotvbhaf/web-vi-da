@@ -1,0 +1,48 @@
+<!-- Services Details-->
+<!--Top Navigation -->
+<div class="topnav">
+  <a class="active" style="width:80px;" href=""> <i class = "fa fa-home" ></i> </a>
+  <div class="search-container">
+    <form action="search" method="POST">
+      <input type="text" placeholder="Search by ID " name="hoadon">
+    </form>
+  </div>
+</div>
+
+<!--Top Navigation -->
+<br>
+<a href="/admin" style="float:left">  <button type = "button" class = "button btn-primary"><i class="fa fa-arrow-left"></i>  </button> </a>
+<br>
+
+<center>
+  <h2>Quản lí hóa đơn</h2> </center>
+
+<% if (hoadon.length != 0) {%>
+  <div class="space"> </div>
+  <div class="list-group">
+
+    <% for (var i=0 ; i < hoadon.length ; i ++)  { %>
+      <a href="chitiethoadon?id=<%= hoadon[i].ID%>">
+        <div class="list-group-item" id="hoadon">
+          Mã hóa đon:
+          <%= hoadon[i].ID %>
+            <h6>Tên khách hàng: <%= hoadon[i].customer.hoten %> - Địa chỉ: <%= hoadon[i].customer.diachi %></h6>
+            <a href="hoadon/delivery?ID=<%= hoadon[i].ID %>&dagiao=yes"> <button class = "buttonDelivery" style = "background-color: #79ff4d"> Đã giao </button> </a>
+            <a href="hoadon/delivery?ID=<%= hoadon[i].ID %>&dagiao=now"> <button class = "buttonDelivery" style = "background-color: #1a75ff"> Đang giao </button> </a>
+            <a href="hoadon/delivery?ID=<%= hoadon[i].ID %>&dagiao=no"> <button class = "buttonDelivery" style = "background-color: #ff3333"> Hủy bỏ </button> </a>
+
+            <% if ( hoadon[i].dagiao == "no") {%>
+              Tình trạng giao hàng: <i class="fa fa-remove" style="color: #ff3333;"></i>
+              <%} else if ( hoadon[i].dagiao == "yes") { %>
+                Tình trạng giao hàng: <i class="fa fa-check" style="color: #79ff4d;"></i>
+                <%} else {%>
+                  Tình trạng giao hàng: <span style="color: #1a75ff" ;> <b>ON THE WAY !!! </b> </span>
+                  <%}%>
+        </div>
+      </a>
+      <% } %>
+        <%} else {%>
+          <center>
+            <h3>Notthing found </h3> </center>
+          <%}%>
+  </div>

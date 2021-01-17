@@ -1,0 +1,54 @@
+<!--Top Navigation -->
+<div class="topnav">
+  <a class="active" style="width:80px;" href="/"> <i class = "fa fa-home" ></i> </a>
+  <a href="#about"><%= __('About')%></a>
+  <a href="#contact"><%= __('Contact')%></a>
+  <a href="shopcart">    <i class="fa fa-shopping-cart" ></i></a>
+  <div class="search-container">
+      <form action="/searchProduct">
+        <input type="text" placeholder="<%= __('Search')%>.." name="search">
+
+
+
+             <select required name = "tproduct">
+                <option value="all" selected=""><%= __('All')%></option>
+                <option value="id">ID</option>
+                <option value="name"><%= __('Name')%></option>
+                <optgroup label="Price">
+                  <option value="price_1"> < 100.000đ</option>
+                  <option value="price_11">100.000 - 500.000đ</option>
+                  <option value="price_51">500.000 - 1.000.000đ</option>
+                  <option value="price_101">1.000.000 - 2.000.000đ</option>
+                  <option value="price_201"> >  2.000.000đ</option>
+                </optgroup>
+
+                <optgroup label="Type">
+                <option value="mebe"><%= __('mebe')%></option>
+                <option value="xe"><%= __('xe')%></option>
+                <option value="dientu"><%= __('dientu')%></option>
+                <option value="fashion"><%= __('fashion')%></option>
+                <option value="giadung"><%= __('giadung')%></option>
+                <option value="thucung"><%= __('thucung')%></option>
+                </optgroup>
+              </select>
+<a  href="/searchnangcao" type = "button" style=" padding:1%; margin-top: -1%; float: right; font-size: 13px; "> <%= __('tiemkiemNC')%> </a>
+    </form>
+  </div>
+</div>
+
+<!--Menu type -->
+<% if  (typeproduct) {%>
+  <div class="dropdown" style = "background-color: blue">
+    <button class="dropbtn"><%= __('menu')%></button>
+    <div class="dropdown-content">
+
+      <% for(var i = 0; i < typeproduct.length; i++ ){%>
+        <a href="danhsach?type=<%= typeproduct[i].type %>">
+          <%= __(typeproduct[i].type)%>
+        </a>
+        <%}%>
+
+    </div>
+  </div>
+  <% } %>
+    <div class="space"> </div>

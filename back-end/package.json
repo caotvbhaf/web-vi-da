@@ -1,0 +1,32 @@
+{
+  "name": "web_vi_da",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sends",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caotvbhaf/web-vi-da.git"
+  },
+  "keywords": [
+    "nodejs",
+    "web",
+    "vi",
+    "da"
+  ],
+  "bugs": {
+    "url": "https://github.com/caotvbhaf/web-vi-da/issues"
+  },
+  "homepage": "https://github.com/caotvbhaf/web-vi-da#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

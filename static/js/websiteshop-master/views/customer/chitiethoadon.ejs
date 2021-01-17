@@ -1,0 +1,25 @@
+<center>
+  <h2><%= __('Invoice details')%></h2> </center>
+*<%= __('ID')%>:
+<%= hoadon[0].ID%>
+  <br>*<%= __('Customer')%>:
+  <%= hoadon[0].customer.hoten%> - <%= __('Address')%>:
+    <%= hoadon[0].customer.diachi%>
+      <br>*<%= __('List of product')%>:
+      <ul>
+        <% for (var i=0 ; i< hoadon[0].danhsachsanpham.length ; i ++ ) {%>
+          <li><%= __('Name product')%>:
+            <%= hoadon[0].danhsachsanpham[i].item.name%> - <%= __('Quantity')%>:
+              <%= hoadon[0].danhsachsanpham[i].quantity%>
+          </li>
+          <%}%>
+      </ul>
+      <b>*<%= __('Total Price')%>: <%= hoadon[0].total%>đ </b>
+      <br>
+      <% if ( hoadon[0].dagiao == "no") {%>
+        <%= __('Delivery status')%>: <i class="fa fa-remove" style="color: #ff3333;"></i>
+        <%} else if ( hoadon[0].dagiao == "yes") { %>
+          <%= __('Delivery status')%>: <i class="fa fa-check" style="color: #79ff4d;"></i>
+          <%} else {%>
+          <%= __('Delivery status')%>: <span style="color: #1a75ff" ;> <b><%= __('ON THE WAY')%> !!! </b> </span>
+            <%}%>

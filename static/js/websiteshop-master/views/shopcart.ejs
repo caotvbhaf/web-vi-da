@@ -1,0 +1,61 @@
+<% if (user) {%>
+<h1><%= user.hoten%> <%= __('Shoping Cart')%></h1>
+  <%} else {%>
+<h1><%= __('Shoping Cart')%></h1>
+    <%}%>
+
+<% if (cart.items.length > 0) {%>
+  <form method="post" action="checkout">
+    <div class="shopping-cart">
+
+      <div class="column-labels">
+        <label class="product-image"><%= __('Image')%></label>
+        <label class="product-details"><%= __('Product')%></label>
+        <label class="product-price"><%= __('Price')%></label>
+        <label class="product-quantity"><%= __('Quantity')%></label>
+        <label class="product-removal"><%= __('Remove')%></label>
+        <label class="product-line-price"><%= __('Total')%></label>
+      </div>
+
+      <% for (var i=0 ; i< cart.items.length ; i ++)  { %>
+        <div class="product">
+          <div class="product-image">
+            <img src="img/<%= cart.items[i].item.link%>">
+          </div>
+          <div class="product-details">
+            <div class="product-title">
+              <%=  cart.items[i].item.name %>
+            </div>
+            <p class="product-description">
+              <%=  cart.items[i].item.info%>
+            </p>
+          </div>
+          <div class="product-price">
+            <%=  cart.items[i].item.price %> đ</div>
+          <div class="product-quantity">
+            <input type="number" value="<%= cart.items[i].quantity%>" min="1" max="10" name="quantity">
+          </div>
+          <div class="product-removal">
+            <a href="/remove?ID=<%= cart.items[i].item.ID%>">   <button type = "button" class="remove-product">
+        <%= __('Remove')%>
+      </button>
+      </a>
+          </div>
+          <div class="product-line-price">đ</div>
+        </div>
+        <% } %>
+
+
+          <div class="totals-item totals-item-total" style="float:right">
+            <label><%= __('Total Price')%></label>
+            <div class="totals-value" id="cart-total">đ</div>
+          </div>
+    </div>
+
+    <button type="submit" class="checkout"><%= __('Checkout')%></button>
+  </form>
+  <% } else { %>
+    <center>
+      <h3> <%= __('Nothing in your Shoping Cart')%></h3>
+    </center>
+    <%}%>

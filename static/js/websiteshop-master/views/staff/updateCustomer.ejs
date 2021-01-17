@@ -1,0 +1,33 @@
+<!-- <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      height: 100vh;
+      background-image: url("../image/background.png");
+      background-size: cover;
+    }
+  </style> -->
+<center><h3>Quản lý thông tin chi tiết khách hàng (sửa xóa)</h3></center>
+<div class="space"> </div>
+<br>
+<a href="quanlytaikhoan" style="float:left">  <button type = "button" class = "button btn-primary"><i class="fa fa-arrow-left"></i>  </button> </a>
+<br>
+<center>
+  <h3>Thông tin khách hàng </h3>
+  <span id="update">
+          <form method="POST" action="adminUpdateCustomer">
+              <center>
+              <input type="text"  name="idkh" value="<%= updateCustomer.ID%>" style="width:60%" readonly = "on"/>
+              <input type="text"  name="hoten" value="<%= updateCustomer.hoten%>" style="width:60%" required pattern="[^0-9~!@#$%^*()-=_+:\x22'<>?,.{}]{5,}" title="Không chứa kí tự đặc biệt" />
+              <input type="password" name="password" value="<%= updateCustomer.password%>" style="width:60%" readonly = "on" required/>
+              <input type="text"  name="diachi" value="<%= updateCustomer.diachi%>" style="width:60%" required pattern="[^~!@#$%^*()=_+:\x22'<>?{}]{5,}" title="Không chứa kí tự đặc biệt" />
+              <input type="email" name="email" value="<%= updateCustomer.email%>" style="height: 40px;width: 60%;" required="">
+              <input type="tel" name="dienthoai" value="<%= updateCustomer.dienthoai%>" style="height:  40px;width:60%; margin-top: 15px; margin-left:4px" required="" pattern="[0-9]{1,11}" title="Chỉ có kí tự số">
+              <br>
+              <button type="submit" class="button btn-primary" style="width:30%"><i class="fa fa-edit"> </i> </button>
+
+              </center>
+            </form>
+        </span>
+</center>
+
+<!--end container contentBox-->

@@ -1,0 +1,69 @@
+<center><h3>Thêm Sản Phẩm</h3></center>
+<br>
+<a href="/admin/gianhang" style="float:left">  <button type = "button" class = "button btn-primary"><i class="fa fa-arrow-left"></i>  </button> </a>
+<br>
+<div class = "space"> </div>
+ <center>
+<% if (Test == null  ){ %>
+
+      <form method = "post"  action = "addproduct" name = "frm">
+
+       <p>
+          <input type="text" id="id" name="id" placeholder="ID product" style="width:80%"   required pattern="[A-Za-z0-9]{1,50}" >
+        </p>
+
+        <p>
+          <input type="text" id="name" name="name" placeholder="Name product" style="width:80%" required pattern="[^~!@#$%^*()=_+:\x22'<>?{}]{5,}" title="Không chứa kí tự đặc biệt" >
+        </p>
+        <p>
+          <input type="text" id="price" name="price" placeholder="Price" style="width:80%" required pattern="[0-9]{1,10}" >
+        </p>
+        <p>Type
+        <select required name = "type">
+
+              <option value="mebe">mẹ bé</option>
+              <option value="xe">Xe</option>
+              <option value="dientu">điện tử</option>
+              <option value="fashion">fashion</option>
+              <option value="giadung">gia dụng</option>
+              <option value="thucung">thú cưng</option>
+            </select>
+
+        </p>
+        <p>
+          <input type="text" id="info" name="info" placeholder="Info" style="width:80%" required pattern="[^~!@#$%^*()=_+:\x22'<>?{}]{5,}" title="Không chứa kí tự đặc biệt" >
+        </p>
+
+       <button type ="submit"  class ="button btn-primary submit" style="width:80%">Add product</button>
+        </form>
+
+     <%} else{%>
+     <div style="margin-left: 100px" >
+
+
+     </div>
+     <form method = "post" action = "addproduct" name = "frm">
+
+
+       <p>
+          <input type="text" id="id" name="id" value="<%= Test.id%>" style="width:80%" readonly = "on" required pattern="[A-Za-z0-9]{1,50}"  >
+        </p>
+        <p>
+          <input type = "text" id="name" name="name" value="<%= Test.name%>" style="width:80%" readonly = "on" required pattern="[A-Za-z0-9]{1,50}" >
+        </p>
+        <p>
+          <input type="text" id="price" name="price" value="<%= Test.price%>" style="width:80%" readonly = "on" required pattern="[0-9]{1,10}" >
+        </p>
+        <p>Type: <%= Test.type%>
+        </p>
+        <p>
+          <input type="text" id="info" name="info" value="<%= Test.Info%>" style="width:80%" readonly = "on" required pattern="[A-Za-z0-9]{1,1000}" >
+        </p>
+      </form>
+       <form method = "post" enctype="multipart/form-data" action = "addimage" name = "frm">
+         <input type="file" name="imgUploader" multiple required />
+         <button type ="submit"  class ="btn-primary"  style="width:80%">Add product</button>
+       </form>
+       <%}%>
+
+ </center>

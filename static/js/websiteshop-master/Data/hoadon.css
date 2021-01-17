@@ -1,0 +1,9 @@
+.buttonDelivery {
+  width: 8%;
+  float:right;
+  margin-top:-35px;
+  border-radius: 10%;
+  font-size: 10px;
+  color : white;
+  margin-right: 10px;
+}

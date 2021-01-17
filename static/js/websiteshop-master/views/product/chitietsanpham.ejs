@@ -1,0 +1,83 @@
+<div class="hinh">
+  <%if (infoProduct.link) { %>
+    <img id="imageproduct" src="img/<%=infoProduct.link%> " width=" 300px" height="400px">
+    <%} else {%>
+      <img id="imageproduct" src="img/noimage.jpg" width=" 300px" height="400px">
+      <%}%>
+</div>
+
+<div class="noidung">
+  <h4 class="ten" id="productName">
+                    <%= __('Name')%> : <%= infoProduct.name%>
+                </h4>
+
+  <div class="mota" id="productInfo">
+    <%= __('Describe')%>:
+    <%= infoProduct.info%>
+  </div>
+
+  <div class="giatien" id="productPrice">
+    <%= __('Price')%>:
+    <%= infoProduct.price%> đ
+  </div>
+  <form action="addToCart?ID=<%= infoProduct.ID%>" method="POST">
+    <div class="soluong">
+      <%= __('Quantity')%>:
+
+      <input type="number" value="1" min="1" max="10" style="width:5%" name="soluong" onchange="totalPrice() " id="tongSL">
+
+    </div>
+
+    <b><%= __('Total Price')%>: </b>
+    <div class="giatien" id="price">
+
+    </div>
+
+    <div class="themgiohang">
+      <a href="" id="addToCart"></a>
+
+      <br>
+      <input type="submit" class="btn btn-primary active" style="float:right;" value="Add to cart">
+    </div>
+  </form>
+</div>
+
+<div class="space"> </div>
+
+<div>
+<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#<%= infoProduct.ID%>" data-numposts="5"></div>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=174429799937192&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+</div>
+
+<div class="space"> </div>
+<h3><%= __('Sponsored products related to this item')%> </h3>
+
+<% if (product.length != 0) { %>
+  <% for (var i=0 ; i< product.length ; i ++)  { %>
+    <!-- hàng for fai có product ở trong -->
+
+    <div class="_1sanpham">
+      <a href="chitietsanpham?ID=<%= product[i].ID%>" id="link04">
+        <%if (product[i].link) { %>
+          <img id="imageproduct" src="img/<%=product[i].link%> " width=" 200px" height="200px">
+          <%} else {%>
+            <img id="imageproduct" src="img/noimage.jpg" width=" 200px" height="200px">
+            <%}%>
+              <p class="tieude" id="productName4">
+                <%= product[i].name %>
+              </p>
+      </a>
+      <p class="tien" id="productPrice4">
+        <%= product[i].price %> đ
+      </p>
+    </div>
+    <% } %>
+      <% } %>

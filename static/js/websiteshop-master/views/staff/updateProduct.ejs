@@ -1,0 +1,26 @@
+<center><h3 >Quản lý thông tin chi tiết sản phẩm</h3></center>
+<br>
+<a href = "removeProduct?ID=<%=updateProduct.ID%>" style="float:right">
+  <button class = "button btn-primary" style = "background-color:red" ><i class = "fa fa-times"></i> </button>
+</a>
+<a href="quanlysanpham?type=<%= updateProduct.type%>" style="float:left">  <button type = "button" class = "button btn-primary"><i class="fa fa-arrow-left"></i>  </button> </a>
+<br>
+<center>
+  <span id="update">
+          <form method="POST" action="adminUpdateProduct">
+            <center>
+              <input type="text" id="id" name="ID" value="<%= updateProduct.ID%>"  style="width:60%" readonly = "on"/>
+              <input type="text" id="type" name="type" value="<%= updateProduct.type%>" style="width:60%" readonly = "on"/>
+              <input type="text" id="name" name="name" value="<%= updateProduct.name%>" style="width:60%" required pattern="[^0-9~!@#$%^*()-=_+:\x22'<>?{}]{5,}" title="Không chứa kí tự đặc biệt, nhiều hơn 5 kí tự" />
+              <input type="text" id="info" name="info" value="<%= updateProduct.info%>" style="width:60%" required pattern="[^~!@#$%^*()=_+:\x22'<>?{}]{5,}" title="Không chứa kí tự đặc biệt" />
+              <input type="number" id="price" name="price" value="<%= updateProduct.price%>" style="width:60%; height:45px;" required title="Chỉ có kí tự số" />
+              <input type="text" id="link" name="link" value="<%= updateProduct.link%>" style="width:60%" required/>
+
+              <br>
+              <button type="submit" class="button btn-primary" style="width:30%"><i class="fa fa-edit"> </i> </button>
+
+            </center>
+          </form>
+
+        </span>
+</center>
